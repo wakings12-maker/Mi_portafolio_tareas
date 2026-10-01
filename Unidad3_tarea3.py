@@ -1,7 +1,7 @@
 #Unidad 3 Tarea 3 Herencia de libros 
 
 
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 
 class Libro(ABC):
 
@@ -10,7 +10,7 @@ class Libro(ABC):
         self.autor = autor
         self.disponible = True  
 
-    @abstractclassmethod
+    @abstractmethod
     def mostrar_info(self)->str:
         pass
 

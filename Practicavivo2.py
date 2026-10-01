@@ -1,15 +1,15 @@
 #Practica en vivo Unidad 3
 
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 class Libro(ABC):
     def __init__(self, titulo, autor):
         self.titulo = titulo
         self.autor = autor
         self.disponible = True
 
-    def mostrar_info(self):
-        estado = "disponible" if self.disponible else "prestado"
-        print(f"{self.titulo} de {self.autor} - {estado}")
+    @abstractmethod
+    def mostrar_info(self)->str:
+        pass
 
 class LibroDigital(Libro):
     def __init__(self, titulo, autor, mb):
@@ -17,7 +17,7 @@ class LibroDigital(Libro):
         self.tamano_mb = mb
 
     def mostrar_info(self):
-        print(f"{self.titulo} - Digital ({self.tamano_mb}MB)")
+        return(f"{self.titulo} - Digital ({self.tamano_mb}MB)")
 
 class LibroFisico(Libro):
     def __init__(self, titulo, autor, estante):
@@ -25,4 +25,10 @@ class LibroFisico(Libro):
         self.estante = estante
 
     def mostrar_info(self):
-        print(f"{self.titulo} - Estante {self.estante}")
+        return(f"{self.titulo} - Estante {self.estante}")
+
+
+libro1 = Libro("Pantheon", "Neflix")
+libro2 = Libro("La Mansion de Luis", "Luis Felipe")
+
+biblio.agregar_libro()
